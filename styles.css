@@ -2,8 +2,10 @@ body{
     background-color: #16161a;
     scrollbar-width: thin;          /* "auto" or "thin" */
     scrollbar-color: #7f5af0;   /* scroll thumb and track */
-    /* overflow-y: scroll;
-    height: 100vh ; */
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 body::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */
@@ -62,12 +64,13 @@ p{
     color: #bcbcc5;
 }
 
-.menuSuperior div{
-    padding: 20px 50px 20px 50px;
+.menuSuperior a{
+    padding: 30px 60px;
+    text-decoration: none;
 }
 
-.menuSuperior a{
-    text-decoration: none;
+.menuSuperior p{
+    margin: 0;
 }
 
 a{
@@ -76,12 +79,12 @@ a{
 }
 
 .menuSuperior{
-    display:flex;
+    display: flex;
     justify-content: right;
+    align-items: center;
     color:aliceblue;
     background-color: #00000029;
     border-radius: 0PX 0px 30PX 30PX;
-    margin-top: -10px;
 }
 
 .centroHome{
@@ -105,11 +108,17 @@ a{
 }
 
 .imgIsa{
-    border-radius: 50%;
-    border: 8px solid #7f5af0;
-    height: 350px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.preencher{
     width: 350px;
-    
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid #7f5af0;
 }
 
 .conteudoHome{
@@ -167,7 +176,10 @@ a{
     animation: descendo 2s ease-in-out alternate infinite;
     bottom: 0;
     position: absolute;
-    left: 45%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
 }
 
 @keyframes descendo {
@@ -191,7 +203,7 @@ a{
 #habilidades{
     border-radius: 20px;
     padding: 20px;
-    border:10px solid #7f5af0;
+    border: 5px solid #7f5af0;
     width: 70%;
     flex-wrap: wrap;
     margin: 7% 0 0 0;;
@@ -199,17 +211,16 @@ a{
 }
 
 .marginHabilidades{
-    margin: 10px 20px 10px 10px;
-    width: 7.5%;
-    transition: all 0.4s ease-in-out;  
-    box-shadow: 0px 0px 126px 0px rgba(128,90,240,0.16);
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+    width: 64px;
+    transition: all 300ms ease-in-out;  
 }
 
 .marginHabilidades:hover{
-    transform: scale(1.5); 
-    -webkit-box-shadow:0px 0px 241px 0px rgba(128,90,240,0.36);
-    -moz-box-shadow: 0px 0px 241px 0px rgba(128,90,240,0.36);
-    box-shadow: 0px 0px 241px 0px rgba(128,90,240,0.36);
+    border-radius: 15px;
+    transform: scale(1.25); 
 }
 
 /* @media (min-width: 481px) and (max-width: 800px) {
@@ -322,12 +333,61 @@ a{
 }
 
 .imgEducacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #16161a;
-    padding: 20px 20px 20px 20px;
+    padding: 20px;
     border-radius: 20px;
     border:2px solid #7f5af0;
     width: 60px;
     height: 60px;
+    transition: all 300ms;
+}
+
+footer{
+    padding: 15px 30px;
+}
+
+.hiddenDesktop{
+    margin-top: 20px;
+    display: none;
+    transition: all 300ms;
+}
+
+.hiddenDesktop img{
+    transform: rotate(180deg);
+}
+
+.retratil-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.retratil{
+    opacity: 0!important;
+    height: 0!important;
+    transform: translateY(-40px)!important;
+    margin: 10px;
+}
+
+#elas-txt, #inici-txt, #colegi-txt{
+    opacity: 100;
+    height: auto;
+    transform: translateY(0px);
+    transition: all 400ms;
+}
+
+.imgEducacao:hover{
+    cursor: pointer;
+    background-color: rgb(127, 90, 240, .2);
+    border-radius: 10px;
+}
+
+.imgEducacao:hover img{
+    filter: brightness(150%);
 }
 
 .textoEducacao{
@@ -359,8 +419,9 @@ a{
     font-size: 25px;
     margin: 0 0 0 0;
     font-family: 'Lato', sans-serif;
-    font-weight: bold;
+    font-weight: 300;
     margin-right: 8px;
+    transition: all 300ms;
 }
 
 .educacaoBaixo{
@@ -373,6 +434,11 @@ a{
     display: flex;
     flex-direction: column;
 
+}
+
+.opcoes > p{
+    color: #bcbcc5;
+    font-weight: 300;
 }
 
 .experi{
@@ -507,6 +573,7 @@ a{
 }
 
 input, textarea{
+    box-sizing: border-box;
     background-color: #201f24;
     border: 1px solid #f0f0f0;
     border-radius: 5px;
@@ -548,6 +615,7 @@ input:hover, input:focus, textarea:hover, textarea:focus{
 }
 
 button{
+    box-sizing: border-box;
     all: unset;
     background-color: #7f5af0;
     color:#f0f0f0;
@@ -563,6 +631,7 @@ button{
     text-align: center;
     padding: 4% 0 4% 2%;
     box-shadow: 0.3s;
+    box-sizing: border-box;
     transition: border-color 0.3s;
     border: 1px solid transparent;
 }
@@ -573,7 +642,7 @@ button:focus {
 
 #nome, #email{
     margin-bottom: 6px;
-    height: 30px;
+    height: 40px;
 }
 
 #mensagem{
@@ -608,35 +677,21 @@ button:focus {
     width: 100%;
 }
 
-.preencher{
-    position: relative;
+img[src='img/Arrow_top.png']{
+    transition: all 200ms;
 }
 
-.preencher::after{
-    height: 0;
-    content: "";
-    background-color: #7f5af0;
-    position: absolute;
-    bottom: 0px;
-    left: 0%;
-    transition: height 300ms;
-    border-radius: 50%;
+img[src='img/Arrow_top.png']:hover{
+    translate: 0 -5px;
+    cursor: pointer;
 }
 
-.preencher:hover{
-    width: 100%;
-    background-color: #7f5af0;
-    height: 100%;
-    transition: width 300ms;
-    border-radius: 50%;
+.preencher:hover {
+	-webkit-animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-.preencher:hover.preencher::after{
-    width: 100%; 
-    height: 100%;
-}
-
-@media (min-width: 800px) and (max-width: 1180px){
+@media (min-width: 801px) and (max-width: 1180px){
     /* tela grande: 4 produtos por linha */
     div.softSkills {  width: calc(100% / 4);  }
     .centroHome{
@@ -659,32 +714,25 @@ button:focus {
         flex-wrap: wrap;
         height: 70vh;
     }
-
-    .menuSuperior div{
-        padding: 2% 8% 2% 0%;
-        font-size: 15px;
-    }
-
-    .menuSuperior{
-        width: 90vw;
-        justify-content: center;
-    }
     
     .menuSuperior div{
-        padding: 20px 4px 20px 4px;
-        font-size: 15px;
-        width: 100vw;
+        text-align: center;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .menuSuperior a{
+        padding: 30px 15px;
     }
 
     .menuSuperior{
-        justify-content: center;
+        width: 100%;
+        justify-content: space-evenly;
     }
 
-    .imgIsa{
-        border-radius: 50%;
-        border: 8px solid #7f5af0;
-        height: 250px;
+    .preencher{
         width: 250px;
+        height: 250px;
     }
 
     div.boxContato{
@@ -708,7 +756,7 @@ button:focus {
     }
 
     div.imgEducacao{
-        padding: 8px 3px 4px 9px;
+        padding: 8px;
         height: 60px;
         width: 60px;
     }
@@ -717,6 +765,11 @@ button:focus {
         display: flex;
         
         align-items: start;
+    }
+
+    .pagina{
+        height: auto;
+        min-height: 100vh;
     }
 }
 
@@ -731,6 +784,17 @@ button:focus {
         height: 40vh;
         justify-content: center;
         align-items: center;
+    }
+
+    footer{
+        flex-wrap: wrap;
+        justify-content: center!important;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    footer p{
+        margin: 5px;
     }
 
     .conteudoHome{
@@ -757,8 +821,9 @@ button:focus {
         margin: 6% 0 0 0;
     }
     
-    .pagina, #habilidades, #educacao, #contato{
-        
+    .pagina{
+        height: auto;
+        min-height: 100vh;
         margin: 0 0 50px 0;
     }
 
@@ -771,18 +836,21 @@ button:focus {
     .menuSuperior div{
         padding: 2% 8% 2% 0%;
         font-size: 15px;
+        text-align: center;
     }
 
     .menuSuperior{
         width: 100%;
-        justify-content: center;
+        justify-content: space-evenly;
     }
 
-    .imgIsa{
-        border-radius: 50%;
-        border: 8px solid #7f5af0;
-        height: 300px;
+    .menuSuperior a{
+        padding: 30px 6px;
+    }
+
+    .preencher{
         width: 300px;
+        height: 300px;
     }
 
     .conteudoHome{
@@ -792,6 +860,7 @@ button:focus {
 
     .educacaoCima{
         flex-direction: column;
+        align-items: center;
         /* margin: 0 5% 0 5%; */
     }
 
@@ -813,7 +882,7 @@ button:focus {
     }
 
     div.imgEducacao{
-        padding: 6px 2px 3px 7px;
+        padding: 6px;
         height: 50px;
         width: 50px;
     }
@@ -877,10 +946,6 @@ button:focus {
         
     }
 
-    input, textarea{
-        width: 95%;
-    }
-
     div.mandaMsg{
         margin: 0;
         display: flex;
@@ -903,6 +968,34 @@ button:focus {
         height: 40vh;
         justify-content: center;
         align-items: center;
+        padding: 15px;
+    }
+
+    .educacaoBaixo{
+        display: none!important;
+    }
+
+    .certificado .underline{
+        display: none;
+    }
+
+    #contato{
+        height: auto;
+    }
+
+    .hiddenDesktop{
+        display: block;
+    }
+
+    footer{
+        flex-wrap: wrap;
+        justify-content: center!important;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    footer p{
+        margin: 5px;
     }
 
     .conteudoHome{
@@ -920,10 +1013,11 @@ button:focus {
 
     }
 
-    /* .pagina, #habilidades, #educacao, #contato{
-        height: 100vh;
+    .pagina{
+        height: auto;
+        min-height: 100vh;
         margin: 0 0 50px 0;
-    } */
+    } 
 
     .centroHome h1{
         font-size: 80px;
@@ -932,20 +1026,22 @@ button:focus {
     }
 
     .menuSuperior div{
-        padding: 20px 4px 20px 4px;
+        text-align: center;
         font-size: 15px;
-        width: 100vw;
+    }
+
+    .menuSuperior a{
+        padding: 30px 6px;
     }
 
     .menuSuperior{
-        justify-content: center;
+        justify-content: space-evenly;
     }
 
-    .imgIsa{
-        border-radius: 50%;
-        border: 8px solid #7f5af0;
-        height: 250px;
+    .preencher{
         width: 250px;
+        height: 250px;
+        border-width: 5px;
     }
 
     .centroHome h1{
@@ -974,12 +1070,9 @@ button:focus {
         margin-top: 20px;
     }
 
-    .descer{
-        left: 41%;
-    }
-
     .educacaoCima{
         flex-direction: column;
+        align-items: center;
         /* margin: 0 5% 0 5%; */
     }
 
@@ -1001,7 +1094,7 @@ button:focus {
     }
 
     div.imgEducacao{
-        padding: 6px 2px 3px 7px;
+        padding: 6px;
         height: 50px;
         width: 50px;
     }
@@ -1043,6 +1136,7 @@ button:focus {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        TEXT-ALIGN: center;
     }
 
     div.boxContato{
@@ -1063,10 +1157,6 @@ button:focus {
         text-align: center;
         margin-bottom: 10px;
         
-    }
-
-    input, textarea{
-        width: 95%;
     }
 
     div.mandaMsg{

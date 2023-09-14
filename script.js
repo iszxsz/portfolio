@@ -7,22 +7,56 @@ var BcolegiadoCefet = document.querySelector(".colegiado");
 var BiniciacaoCientifica = document.querySelector(".iniciacao");
 
 BelasNet.onclick = function(){
+
+    BelasNet.querySelector('h4').style = "font-weight: bold"
+    BcolegiadoCefet.querySelector('h4').style = "font-weight: 300"
+    BiniciacaoCientifica.querySelector('h4').style = "font-weight: 300"
+
     elasNet.style.display = "block";
     colegiadoCefet.style.display = "none";
     iniciacaoCientifica.style.display = "none";
 }
 
 BcolegiadoCefet.onclick = function() {
+
+    BelasNet.querySelector('h4').style = "font-weight: 300"
+    BcolegiadoCefet.querySelector('h4').style = "font-weight: bold"
+    BiniciacaoCientifica.querySelector('h4').style = "font-weight: 300"
+
     elasNet.style.display = "none";
     colegiadoCefet.style.display = "block";
     iniciacaoCientifica.style.display = "none";
 }
 
 BiniciacaoCientifica.onclick = function() {
+
+    BelasNet.querySelector('h4').style = "font-weight: 300"
+    BcolegiadoCefet.querySelector('h4').style = "font-weight: 300"
+    BiniciacaoCientifica.querySelector('h4').style = "font-weight: bold"
+
     elasNet.style.display = "none";
     colegiadoCefet.style.display = "none";
     iniciacaoCientifica.style.display = "block";
 };
+
+function showExp(clicado, div) {
+
+  if(document.querySelector(`#${clicado}`).classList.contains('hidden')){
+    div.querySelector('img').style = "transform: rotate(0deg);"
+    document.querySelector(`#${clicado}`).classList.toggle("hidden");
+    setTimeout(() => {
+      document.querySelector(`#${clicado}`).classList.toggle("retratil");
+    }, "1");
+    
+  } else {
+    document.querySelector(`#${clicado}`).classList.toggle("retratil");
+    div.querySelector('img').style = "transform: rotate(180deg);"
+    setTimeout(() => {
+      document.querySelector(`#${clicado}`).classList.toggle("hidden");
+    }, "300");
+  } 
+
+}
 
 class FormSubmit {
     constructor(settings) {
